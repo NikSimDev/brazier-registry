@@ -1,8 +1,8 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO NikSimDev/lightlib
-    REF v0.1.5
-    SHA512 c1424fe4f612003732390f9a9dd54f5a7e8948038e38be9b8d84292dbd29f02081f49c2a2a7a29998a0ce0bb79311f0b9325f2431624fb6e9bf39864c379e75c
+    REF v0.1.6
+    SHA512 92e7c2bfe0c4c6881fe49e1bef718c39428004dadf3529b36d7a2b24bbbfd377bdf0fd7312a7dcf4472e35c129af15f53a270a00ac0376a8983f1bbb647f2504
     HEAD_REF master
 )
 
@@ -14,6 +14,12 @@ vcpkg_cmake_configure(
 )
 
 vcpkg_cmake_install()
+
+file(REMOVE_RECURSE 
+    "${CURRENT_PACKAGES_DIR}/debug/include"
+)
+
+set(VCPKG_POLICY_DLLS_WITHOUT_EXPORTS enabled)
 
 vcpkg_cmake_config_fixup(CONFIG_PATH share/lightlib)
 
