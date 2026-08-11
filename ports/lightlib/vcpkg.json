@@ -13,14 +13,17 @@
       "name": "vcpkg-cmake-config",
       "host": true
     },
-    "boost",
+    "boost-config",
+    "boost-asio",
+    "boost-beast",
+    "boost-system",
+    "boost-thread",
     "fmt",
     "hiredis",
     "jwt-cpp",
     "libpq",
     "nlohmann-json",
-    "zlib",
-    "picojson"
+    "zlib"
   ],
   "supports": "x64 & (windows | linux | osx)"
 }
