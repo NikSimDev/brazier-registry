@@ -1,14 +1,13 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO NikSimDev/lightlib
-    REF v0.1.6
-    SHA512 92e7c2bfe0c4c6881fe49e1bef718c39428004dadf3529b36d7a2b24bbbfd377bdf0fd7312a7dcf4472e35c129af15f53a270a00ac0376a8983f1bbb647f2504
+    REF v0.1.4
+    SHA512 cde4708a579a0e9c5565c6db333f9c44d6a28ba4c36e1b26f2d63927e42df6067bd5068332338b43f34aa305a0c0cc7f9af74ef5a395959856da114dfaf9ce8e
     HEAD_REF master
 )
 
 vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}/Light"
-    GENERATOR "Visual Studio 18 2026"
     OPTIONS
         -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
 )
@@ -17,10 +16,16 @@ vcpkg_cmake_install()
 
 file(REMOVE_RECURSE 
     "${CURRENT_PACKAGES_DIR}/debug/include"
+    "${CURRENT_PACKAGES_DIR}/debug/share"
 )
 
-set(VCPKG_POLICY_DLLS_WITHOUT_EXPORTS enabled)
+if(VCPKG_LIBRARY_LINKAGE STREQUAL "static")
+    file(REMOVE_RECURSE 
+        "${CURRENT_PACKAGES_DIR}/bin"
+        "${CURRENT_PACKAGES_DIR}/debug/bin"
+    )
+endif()
 
-vcpkg_cmake_config_fixup(CONFIG_PATH share/lightlib)
+set(VCPKG_POLICY_DLLS_WITHOUT_EXPORTS enabled)
 
 vcpkg_install_copyright(FILE_LIST "${SOURCE_PATH}/LICENSE")
