@@ -23,7 +23,9 @@
     "jwt-cpp",
     "libpq",
     "nlohmann-json",
-    "zlib"
+    "zlib",
+    "picojson",
+    "gtest"
   ],
   "supports": "x64 & (windows | linux | osx)"
 }

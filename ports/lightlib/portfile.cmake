@@ -5,9 +5,8 @@ if(NOT EXISTS "${SOURCE_PATH}")
 endif()
 
 vcpkg_cmake_configure(
-    SOURCE_PATH "${SOURCE_PATH}/Light"   
-    OPTIONS
-        -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
+    SOURCE_PATH "${SOURCE_PATH}/Light"
+    OPTIONS -DBUILD_TESTS=OFF  
 )
 
 vcpkg_cmake_install()
