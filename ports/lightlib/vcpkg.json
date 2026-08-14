@@ -18,6 +18,8 @@
     "boost-beast",
     "boost-system",
     "boost-thread",
+    "boost-filesystem",
+    "boost-variant",
     "fmt",
     "hiredis",
     "jwt-cpp",
