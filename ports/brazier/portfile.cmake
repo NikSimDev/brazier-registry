@@ -1,11 +1,11 @@
-set(SOURCE_PATH "C:/Users/Admin/source/repos/Light")
+set(SOURCE_PATH "C:/Users/Admin/source/repos/brazier")
 
 if(NOT EXISTS "${SOURCE_PATH}")
     message(FATAL_ERROR "Source directory not found: ${SOURCE_PATH}")
 endif()
 
 vcpkg_cmake_configure(
-    SOURCE_PATH "${SOURCE_PATH}/Light"
+    SOURCE_PATH "${SOURCE_PATH}/brazier"
     OPTIONS -DBUILD_TESTS=OFF  
 )
 
